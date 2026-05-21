@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Israel Miranda Aké — Consultor en Desarrollo Empresarial</title>
+<meta name="description" content="Consultoría en desarrollo comercial, estrategia, análisis de datos e inteligencia artificial aplicada al negocio." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --ink: #1d1d1f;
+    --ink-soft: #424245;
+    --ink-mute: #6e6e73;
+    --line: #d2d2d7;
+    --line-soft: #f5f5f7;
+    --surface: #fbfbfd;
+    --accent: #0071e3;
+    --accent-hover: #0077ed;
+    --max: 1100px;
+    --gutter: clamp(20px, 5vw, 48px);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  .display {
+    font-family: 'Fraunces', 'Times New Roman', serif;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* ---------- NAV ---------- */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    background: rgba(255, 255, 255, 0.72);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .nav-wrap {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 14px var(--gutter);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .brand {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+  .nav-links a { transition: color .2s; }
+  .nav-links a:hover { color: var(--ink); }
+  @media (max-width: 720px) { .nav-links { display: none; } }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: clamp(80px, 14vw, 160px) var(--gutter) clamp(60px, 10vw, 120px);
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: clamp(40px, 6vw, 80px);
+    align-items: center;
+  }
+  @media (max-width: 860px) {
+    .hero { grid-template-columns: 1fr; }
+  }
+
+  .eyebrow {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-size: clamp(40px, 6.5vw, 72px);
+    margin-bottom: 28px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--ink-soft);
+  }
+  .hero p {
+    font-size: clamp(17px, 1.6vw, 19px);
+    color: var(--ink-soft);
+    max-width: 540px;
+    margin-bottom: 36px;
+  }
+  .cta-row {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 22px;
+    border-radius: 980px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all .2s ease;
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+  }
+  .btn-primary {
+    background: var(--ink);
+    color: #fff;
+  }
+  .btn-primary:hover { background: #000; transform: translateY(-1px); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--line);
+  }
+  .btn-ghost:hover { border-color: var(--ink); }
+  .btn .arrow { transition: transform .2s; }
+  .btn:hover .arrow { transform: translateX(3px); }
+
+  /* Photo frame */
+  .photo-frame {
+    aspect-ratio: 4/5;
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.04), 0 30px 60px -30px rgba(0,0,0,0.18);
+    background: #f5f5f7;
+  }
+  .photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+
+  /* ---------- SECTIONS ---------- */
+  section {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: clamp(70px, 10vw, 120px) var(--gutter);
+  }
+  .section-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-bottom: 20px;
+  }
+  .section-title {
+    font-size: clamp(32px, 4.5vw, 52px);
+    margin-bottom: 60px;
+    max-width: 720px;
+  }
+  .section-title em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- SERVICES ---------- */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1px;
+    background: var(--line-soft);
+    border: 1px solid var(--line-soft);
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  .service {
+    background: transparent;
+    min-height: 260px;
+    perspective: 1200px;
+    position: relative;
+  }
+  .service-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 260px;
+    transition: transform .7s cubic-bezier(.22,.61,.36,1);
+    transform-style: preserve-3d;
+  }
+  .service:hover .service-inner,
+  .service:focus-within .service-inner {
+    transform: rotateY(180deg);
+  }
+  .service-face {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    padding: 36px 32px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+  }
+  .service-back {
+    transform: rotateY(180deg);
+    background: var(--surface);
+    padding: 24px;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+  }
+  .service-back .viz {
+    width: 100%;
+    max-width: 240px;
+    aspect-ratio: 4/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .service-back .viz svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+  .service-back .viz-label {
+    font-family: 'Fraunces', serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--ink);
+    text-align: center;
+    letter-spacing: -0.01em;
+  }
+  .service-num {
+    font-family: 'Fraunces', serif;
+    font-size: 14px;
+    color: var(--ink-mute);
+    margin-bottom: 18px;
+    font-feature-settings: "tnum";
+  }
+  .service h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+  .service-face > p {
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+  .flip-hint {
+    margin-top: auto;
+    padding-top: 18px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-mute);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .flip-hint::after {
+    content: '↻';
+    font-size: 13px;
+  }
+  @media (hover: none) {
+    .service-inner { transition: transform .5s ease; }
+    .service.flipped .service-inner { transform: rotateY(180deg); }
+  }
+
+  /* ---------- EXPERIENCE ---------- */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+  }
+  .exp {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 40px;
+    padding: 36px 0;
+    border-top: 1px solid var(--line-soft);
+    transition: padding .2s;
+  }
+  .exp:last-child { border-bottom: 1px solid var(--line-soft); }
+  .exp:hover { padding-left: 8px; }
+  @media (max-width: 720px) {
+    .exp { grid-template-columns: 1fr; gap: 12px; }
+  }
+  .exp-period {
+    font-size: 13px;
+    color: var(--ink-mute);
+    font-weight: 500;
+    padding-top: 4px;
+    letter-spacing: 0.02em;
+  }
+  .exp-role {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    margin-bottom: 4px;
+  }
+  .exp-company {
+    font-size: 14px;
+    color: var(--accent);
+    margin-bottom: 14px;
+    font-weight: 500;
+  }
+  .exp-desc {
+    font-size: 15px;
+    color: var(--ink-soft);
+    max-width: 620px;
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact-wrap {
+    background: var(--surface);
+    border-radius: 28px;
+    padding: clamp(40px, 6vw, 70px);
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: clamp(40px, 5vw, 70px);
+  }
+  @media (max-width: 860px) {
+    .contact-wrap { grid-template-columns: 1fr; }
+  }
+  .contact-info h2 {
+    font-size: clamp(28px, 3.6vw, 40px);
+    margin-bottom: 20px;
+  }
+  .contact-info > p {
+    color: var(--ink-soft);
+    font-size: 16px;
+    margin-bottom: 36px;
+    max-width: 380px;
+  }
+  .contact-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .contact-list li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 15px;
+    color: var(--ink);
+  }
+  .contact-list a:hover { color: var(--accent); }
+  .icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #fff;
+    border: 1px solid var(--line);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .icon svg { width: 16px; height: 16px; }
+
+  /* Form */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .field label {
+    display: block;
+    font-size: 12px;
+    color: var(--ink-mute);
+    margin-bottom: 8px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .field input,
+  .field textarea {
+    width: 100%;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 14px 16px;
+    font-size: 15px;
+    font-family: inherit;
+    color: var(--ink);
+    transition: border-color .2s, box-shadow .2s;
+    resize: vertical;
+  }
+  .field input:focus,
+  .field textarea:focus {
+    outline: none;
+    border-color: var(--ink);
+    box-shadow: 0 0 0 4px rgba(29,29,31,0.06);
+  }
+  .field textarea { min-height: 120px; }
+  form button {
+    align-self: flex-start;
+    margin-top: 6px;
+  }
+  .form-note {
+    font-size: 12px;
+    color: var(--ink-mute);
+    margin-top: 4px;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    border-top: 1px solid var(--line-soft);
+    padding: 40px var(--gutter);
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-mute);
+  }
+  footer .display {
+    font-size: 14px;
+    color: var(--ink-soft);
+    margin-bottom: 6px;
+  }
+
+  /* ---------- ANIMATIONS ---------- */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero > * { animation: fadeUp .8s ease both; }
+  .hero > *:nth-child(2) { animation-delay: .1s; }
+
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-wrap">
+    <a href="#top" class="brand">Israel Miranda Aké</a>
+    <div class="nav-links">
+      <a href="#servicios">Servicios</a>
+      <a href="#experiencia">Experiencia</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div>
+    <div class="eyebrow">Consultoría empresarial</div>
+    <h1 class="display">
+      Decisiones más inteligentes.<br />
+      <em>Negocios que crecen.</em>
+    </h1>
+    <p>
+      Acompaño a empresas y equipos comerciales a tomar mejores decisiones combinando estrategia, datos e inteligencia artificial aplicada al negocio.
+    </p>
+    <div class="cta-row">
+      <a href="#contacto" class="btn btn-primary">
+        Conversemos <span class="arrow">→</span>
+      </a>
+      <a href="#servicios" class="btn btn-ghost">Ver servicios</a>
+    </div>
+  </div>
+  <div class="photo-frame">
+    <img src="israel-miranda.jpg" alt="Israel Alberto Miranda Aké" />
+  </div>
+</header>
+
+<!-- SERVICES -->
+<section id="servicios">
+  <div class="section-label reveal">01 — Servicios</div>
+  <h2 class="display section-title reveal">
+    Lo que hago, <em>cómo lo hago.</em>
+  </h2>
+  <div class="services-grid">
+
+    <!-- 01 Desarrollo comercial -->
+    <div class="service" tabindex="0">
+      <div class="service-inner">
+        <div class="service-face">
+          <div class="service-num">01</div>
+          <h3>Desarrollo comercial</h3>
+          <p>Diseño y ejecución de estrategias para abrir mercados, construir pipeline y acelerar el ciclo de ventas.</p>
+          <span class="flip-hint">Ver gráfica</span>
+        </div>
+        <div class="service-face service-back">
+          <div class="viz">
+            <!-- Funnel pipeline -->
+            <svg viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#0071e3" stop-opacity="0.95"/>
+                  <stop offset="1" stop-color="#0071e3" stop-opacity="0.55"/>
+                </linearGradient>
+              </defs>
+              <g font-family="Inter, sans-serif" font-size="9" fill="#6e6e73">
+                <rect x="20" y="20"  width="200" height="22" rx="3" fill="url(#g1)" opacity="1"/>
+                <rect x="40" y="52"  width="160" height="22" rx="3" fill="url(#g1)" opacity="0.85"/>
+                <rect x="60" y="84"  width="120" height="22" rx="3" fill="url(#g1)" opacity="0.7"/>
+                <rect x="80" y="116" width="80"  height="22" rx="3" fill="url(#g1)" opacity="0.55"/>
+                <rect x="100" y="148" width="40" height="18" rx="3" fill="#1d1d1f"/>
+                <text x="120" y="35"  text-anchor="middle" fill="#fff" font-weight="500">Leads</text>
+                <text x="120" y="67"  text-anchor="middle" fill="#fff" font-weight="500">Calificados</text>
+                <text x="120" y="99"  text-anchor="middle" fill="#fff" font-weight="500">Propuesta</text>
+                <text x="120" y="131" text-anchor="middle" fill="#fff" font-weight="500">Negociación</text>
+                <text x="120" y="161" text-anchor="middle" fill="#fff" font-weight="500">Cierre</text>
+              </g>
+            </svg>
+          </div>
+          <div class="viz-label">Pipeline comercial</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 02 Estrategia empresarial -->
+    <div class="service" tabindex="0">
+      <div class="service-inner">
+        <div class="service-face">
+          <div class="service-num">02</div>
+          <h3>Estrategia empresarial</h3>
+          <p>Definición de rumbo, modelo de negocio y prioridades para crecer con foco y rentabilidad.</p>
+          <span class="flip-hint">Ver gráfica</span>
+        </div>
+        <div class="service-face service-back">
+          <div class="viz">
+            <!-- Bullseye + flecha -->
+            <svg viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+              <g transform="translate(120 90)">
+                <circle r="72" fill="none" stroke="#d2d2d7" stroke-width="1"/>
+                <circle r="54" fill="none" stroke="#d2d2d7" stroke-width="1"/>
+                <circle r="36" fill="none" stroke="#0071e3" stroke-width="1.5" opacity="0.5"/>
+                <circle r="18" fill="#0071e3" opacity="0.15"/>
+                <circle r="6" fill="#1d1d1f"/>
+              </g>
+              <!-- Flecha diagonal -->
+              <g stroke="#1d1d1f" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="35" y1="155" x2="118" y2="92"/>
+                <polyline points="108,88 120,90 118,102"/>
+              </g>
+              <g font-family="Inter, sans-serif" font-size="8" fill="#6e6e73">
+                <text x="200" y="30">Visión</text>
+                <text x="200" y="60">Foco</text>
+                <text x="200" y="90">Prioridad</text>
+                <text x="200" y="120">Objetivo</text>
+              </g>
+            </svg>
+          </div>
+          <div class="viz-label">Foco estratégico</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 03 Análisis de datos -->
+    <div class="service" tabindex="0">
+      <div class="service-inner">
+        <div class="service-face">
+          <div class="service-num">03</div>
+          <h3>Análisis de datos</h3>
+          <p>Modelos en SQL, DAX y Python que convierten datos dispersos en información accionable.</p>
+          <span class="flip-hint">Ver gráfica</span>
+        </div>
+        <div class="service-face service-back">
+          <div class="viz">
+            <!-- Scatter con tendencia -->
+            <svg viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+              <g stroke="#d2d2d7" stroke-width="0.8">
+                <line x1="30" y1="150" x2="220" y2="150"/>
+                <line x1="30" y1="20"  x2="30"  y2="150"/>
+                <line x1="30" y1="120" x2="220" y2="120" opacity="0.4"/>
+                <line x1="30" y1="90"  x2="220" y2="90"  opacity="0.4"/>
+                <line x1="30" y1="60"  x2="220" y2="60"  opacity="0.4"/>
+              </g>
+              <!-- línea de tendencia -->
+              <line x1="35" y1="135" x2="215" y2="35" stroke="#1d1d1f" stroke-width="1.5" stroke-dasharray="3 3"/>
+              <!-- puntos -->
+              <g fill="#0071e3">
+                <circle cx="48"  cy="128" r="3.5"/>
+                <circle cx="68"  cy="118" r="3.5"/>
+                <circle cx="85"  cy="112" r="3.5"/>
+                <circle cx="105" cy="95"  r="3.5"/>
+                <circle cx="122" cy="88"  r="3.5"/>
+                <circle cx="142" cy="76"  r="3.5"/>
+                <circle cx="160" cy="64"  r="3.5"/>
+                <circle cx="180" cy="55"  r="3.5"/>
+                <circle cx="200" cy="42"  r="3.5"/>
+              </g>
+            </svg>
+          </div>
+          <div class="viz-label">Correlación y tendencia</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 04 Decisiones basadas en datos -->
+    <div class="service" tabindex="0">
+      <div class="service-inner">
+        <div class="service-face">
+          <div class="service-num">04</div>
+          <h3>Decisiones basadas en datos</h3>
+          <p>Tableros e indicadores que ponen la realidad del negocio frente a quienes deciden.</p>
+          <span class="flip-hint">Ver gráfica</span>
+        </div>
+        <div class="service-face service-back">
+          <div class="viz">
+            <!-- KPI dashboard mini -->
+            <svg viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+              <g font-family="Inter, sans-serif">
+                <!-- KPI 1 -->
+                <rect x="15"  y="20" width="100" height="55" rx="6" fill="#fff" stroke="#d2d2d7"/>
+                <text x="25" y="38" font-size="8" fill="#6e6e73">VENTAS</text>
+                <text x="25" y="60" font-family="Fraunces, serif" font-size="20" font-weight="500" fill="#1d1d1f">$2.4M</text>
+                <text x="92" y="60" font-size="9" fill="#0071e3" text-anchor="end">▲ 18%</text>
+                <!-- KPI 2 -->
+                <rect x="125" y="20" width="100" height="55" rx="6" fill="#fff" stroke="#d2d2d7"/>
+                <text x="135" y="38" font-size="8" fill="#6e6e73">MARGEN</text>
+                <text x="135" y="60" font-family="Fraunces, serif" font-size="20" font-weight="500" fill="#1d1d1f">32%</text>
+                <text x="202" y="60" font-size="9" fill="#0071e3" text-anchor="end">▲ 4pp</text>
+                <!-- Bar chart -->
+                <rect x="15" y="85" width="210" height="80" rx="6" fill="#fff" stroke="#d2d2d7"/>
+                <g fill="#0071e3">
+                  <rect x="30"  y="130" width="14" height="25" rx="2"/>
+                  <rect x="55"  y="120" width="14" height="35" rx="2"/>
+                  <rect x="80"  y="110" width="14" height="45" rx="2"/>
+                  <rect x="105" y="105" width="14" height="50" rx="2"/>
+                  <rect x="130" y="95"  width="14" height="60" rx="2"/>
+                  <rect x="155" y="100" width="14" height="55" rx="2"/>
+                  <rect x="180" y="85"  width="14" height="70" rx="2" fill="#1d1d1f"/>
+                </g>
+              </g>
+            </svg>
+          </div>
+          <div class="viz-label">Tablero ejecutivo</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 05 IA aplicada -->
+    <div class="service" tabindex="0">
+      <div class="service-inner">
+        <div class="service-face">
+          <div class="service-num">05</div>
+          <h3>IA aplicada al negocio</h3>
+          <p>Adopción responsable y útil de inteligencia artificial: dónde aplica, dónde no, y cómo medir su impacto.</p>
+          <span class="flip-hint">Ver gráfica</span>
+        </div>
+        <div class="service-face service-back">
+          <div class="viz">
+            <!-- Red neuronal estilizada -->
+            <svg viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+              <g stroke="#d2d2d7" stroke-width="0.8" fill="none">
+                <!-- conexiones capa 1 -> 2 -->
+                <line x1="40" y1="40"  x2="120" y2="40"/>
+                <line x1="40" y1="40"  x2="120" y2="90"/>
+                <line x1="40" y1="40"  x2="120" y2="140"/>
+                <line x1="40" y1="90"  x2="120" y2="40"/>
+                <line x1="40" y1="90"  x2="120" y2="90"/>
+                <line x1="40" y1="90"  x2="120" y2="140"/>
+                <line x1="40" y1="140" x2="120" y2="40"/>
+                <line x1="40" y1="140" x2="120" y2="90"/>
+                <line x1="40" y1="140" x2="120" y2="140"/>
+                <!-- conexiones capa 2 -> 3 -->
+                <line x1="120" y1="40"  x2="200" y2="65"/>
+                <line x1="120" y1="40"  x2="200" y2="115"/>
+                <line x1="120" y1="90"  x2="200" y2="65"/>
+                <line x1="120" y1="90"  x2="200" y2="115"/>
+                <line x1="120" y1="140" x2="200" y2="65"/>
+                <line x1="120" y1="140" x2="200" y2="115"/>
+              </g>
+              <g>
+                <circle cx="40"  cy="40"  r="7" fill="#fff" stroke="#1d1d1f" stroke-width="1.5"/>
+                <circle cx="40"  cy="90"  r="7" fill="#fff" stroke="#1d1d1f" stroke-width="1.5"/>
+                <circle cx="40"  cy="140" r="7" fill="#fff" stroke="#1d1d1f" stroke-width="1.5"/>
+                <circle cx="120" cy="40"  r="8" fill="#0071e3"/>
+                <circle cx="120" cy="90"  r="8" fill="#0071e3"/>
+                <circle cx="120" cy="140" r="8" fill="#0071e3"/>
+                <circle cx="200" cy="65"  r="9" fill="#1d1d1f"/>
+                <circle cx="200" cy="115" r="9" fill="#1d1d1f"/>
+              </g>
+              <g font-family="Inter, sans-serif" font-size="8" fill="#6e6e73" text-anchor="middle">
+                <text x="40"  y="170">Datos</text>
+                <text x="120" y="170">Modelo</text>
+                <text x="200" y="170">Decisión</text>
+              </g>
+            </svg>
+          </div>
+          <div class="viz-label">Flujo de inferencia</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 06 Capacitación comercial -->
+    <div class="service" tabindex="0">
+      <div class="service-inner">
+        <div class="service-face">
+          <div class="service-num">06</div>
+          <h3>Capacitación comercial</h3>
+          <p>Formación práctica para equipos de ventas y líderes que necesitan resultados, no teoría.</p>
+          <span class="flip-hint">Ver gráfica</span>
+        </div>
+        <div class="service-face service-back">
+          <div class="viz">
+            <!-- Curva de crecimiento equipo antes/después -->
+            <svg viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+              <g stroke="#d2d2d7" stroke-width="0.8">
+                <line x1="30" y1="150" x2="220" y2="150"/>
+                <line x1="30" y1="20"  x2="30"  y2="150"/>
+              </g>
+              <!-- Línea base (antes) -->
+              <path d="M 35 125 L 75 122 L 115 120 L 155 118 L 195 115 L 215 114"
+                    fill="none" stroke="#6e6e73" stroke-width="1.5" stroke-dasharray="4 3"/>
+              <!-- Línea después capacitación -->
+              <path d="M 35 125 L 75 115 L 115 95 L 155 70 L 195 45 L 215 32"
+                    fill="none" stroke="#0071e3" stroke-width="2.2"/>
+              <!-- Marcador "capacitación" -->
+              <line x1="75" y1="20" x2="75" y2="150" stroke="#1d1d1f" stroke-width="0.8" stroke-dasharray="2 3" opacity="0.5"/>
+              <circle cx="75" cy="115" r="4" fill="#1d1d1f"/>
+              <g font-family="Inter, sans-serif" font-size="8" fill="#6e6e73">
+                <text x="78" y="30">Capacitación</text>
+                <text x="218" y="38" text-anchor="end" fill="#0071e3" font-weight="500">+62%</text>
+                <text x="218" y="125" text-anchor="end">Base</text>
+              </g>
+            </svg>
+          </div>
+          <div class="viz-label">Impacto en desempeño</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 07 Sistemas de gestión -->
+    <div class="service" tabindex="0">
+      <div class="service-inner">
+        <div class="service-face">
+          <div class="service-num">07</div>
+          <h3>Sistemas de gestión</h3>
+          <p>Acompañamiento e implementación de sistemas de gestión empresarial alineados a la operación real.</p>
+          <span class="flip-hint">Ver gráfica</span>
+        </div>
+        <div class="service-face service-back">
+          <div class="viz">
+            <!-- Diagrama de módulos integrados -->
+            <svg viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+              <!-- Centro -->
+              <circle cx="120" cy="90" r="22" fill="#1d1d1f"/>
+              <text x="120" y="93" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" font-weight="500" fill="#fff">ERP</text>
+              <!-- Conexiones -->
+              <g stroke="#d2d2d7" stroke-width="1">
+                <line x1="120" y1="68" x2="120" y2="38"/>
+                <line x1="120" y1="112" x2="120" y2="142"/>
+                <line x1="98" y1="90" x2="60" y2="90"/>
+                <line x1="142" y1="90" x2="180" y2="90"/>
+                <line x1="105" y1="75" x2="75" y2="55"/>
+                <line x1="135" y1="75" x2="165" y2="55"/>
+                <line x1="105" y1="105" x2="75" y2="125"/>
+                <line x1="135" y1="105" x2="165" y2="125"/>
+              </g>
+              <!-- Módulos -->
+              <g font-family="Inter, sans-serif" font-size="8" fill="#1d1d1f" text-anchor="middle">
+                <rect x="100" y="22" width="40" height="20" rx="4" fill="#fff" stroke="#0071e3" stroke-width="1.2"/>
+                <text x="120" y="35">Ventas</text>
+                <rect x="100" y="138" width="40" height="20" rx="4" fill="#fff" stroke="#0071e3" stroke-width="1.2"/>
+                <text x="120" y="151">Finanzas</text>
+                <rect x="28" y="80"  width="40" height="20" rx="4" fill="#fff" stroke="#0071e3" stroke-width="1.2"/>
+                <text x="48" y="93">CRM</text>
+                <rect x="172" y="80" width="40" height="20" rx="4" fill="#fff" stroke="#0071e3" stroke-width="1.2"/>
+                <text x="192" y="93">Inv.</text>
+                <rect x="50" y="42" width="34" height="18" rx="4" fill="#fff" stroke="#d2d2d7"/>
+                <text x="67" y="54">RH</text>
+                <rect x="156" y="42" width="34" height="18" rx="4" fill="#fff" stroke="#d2d2d7"/>
+                <text x="173" y="54">Compras</text>
+                <rect x="50" y="120" width="34" height="18" rx="4" fill="#fff" stroke="#d2d2d7"/>
+                <text x="67" y="132">BI</text>
+                <rect x="156" y="120" width="34" height="18" rx="4" fill="#fff" stroke="#d2d2d7"/>
+                <text x="173" y="132">Logística</text>
+              </g>
+            </svg>
+          </div>
+          <div class="viz-label">Sistema integrado</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 08 Acompañamiento ejecutivo -->
+    <div class="service" tabindex="0">
+      <div class="service-inner">
+        <div class="service-face">
+          <div class="service-num">08</div>
+          <h3>Acompañamiento ejecutivo</h3>
+          <p>Sesiones uno a uno para definir, ejecutar y ajustar iniciativas estratégicas con disciplina.</p>
+          <span class="flip-hint">Ver gráfica</span>
+        </div>
+        <div class="service-face service-back">
+          <div class="viz">
+            <!-- Roadmap / hitos -->
+            <svg viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+              <!-- línea base -->
+              <line x1="20" y1="90" x2="220" y2="90" stroke="#d2d2d7" stroke-width="1.5"/>
+              <!-- hitos -->
+              <g font-family="Inter, sans-serif" font-size="8" fill="#6e6e73" text-anchor="middle">
+                <circle cx="40"  cy="90" r="8" fill="#1d1d1f"/>
+                <text x="40" y="93" fill="#fff" font-weight="500" font-size="7">1</text>
+                <text x="40" y="115">Diagnóstico</text>
+                <text x="40" y="70" fill="#1d1d1f">Sem 1</text>
+
+                <circle cx="100" cy="90" r="8" fill="#0071e3"/>
+                <text x="100" y="93" fill="#fff" font-weight="500" font-size="7">2</text>
+                <text x="100" y="115">Plan</text>
+                <text x="100" y="70" fill="#1d1d1f">Sem 3</text>
+
+                <circle cx="160" cy="90" r="8" fill="#0071e3" opacity="0.6"/>
+                <text x="160" y="93" fill="#fff" font-weight="500" font-size="7">3</text>
+                <text x="160" y="115">Ejecución</text>
+                <text x="160" y="70" fill="#1d1d1f">Sem 6</text>
+
+                <circle cx="210" cy="90" r="8" fill="#fff" stroke="#1d1d1f" stroke-width="1.5"/>
+                <text x="210" y="93" font-weight="500" font-size="7" fill="#1d1d1f">4</text>
+                <text x="210" y="115">Ajuste</text>
+                <text x="210" y="70" fill="#1d1d1f">Sem 12</text>
+              </g>
+              <!-- progreso -->
+              <line x1="20" y1="90" x2="110" y2="90" stroke="#0071e3" stroke-width="2.5"/>
+              <text x="120" y="155" font-family="Inter, sans-serif" font-size="9" fill="#6e6e73" text-anchor="middle">Hoja de ruta · 12 semanas</text>
+            </svg>
+          </div>
+          <div class="viz-label">Roadmap de acompañamiento</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 09 Diagnóstico empresarial -->
+    <div class="service" tabindex="0">
+      <div class="service-inner">
+        <div class="service-face">
+          <div class="service-num">09</div>
+          <h3>Diagnóstico empresarial</h3>
+          <p>Evaluación integral de áreas clave del negocio para identificar oportunidades de mejora y crecimiento.</p>
+          <span class="flip-hint">Ver gráfica</span>
+        </div>
+        <div class="service-face service-back">
+          <div class="viz">
+            <!-- Radar / spider chart -->
+            <svg viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+              <g transform="translate(120 90)">
+                <!-- ejes del radar (6 puntas) -->
+                <g stroke="#d2d2d7" stroke-width="0.8" fill="none">
+                  <polygon points="0,-70 60.6,-35 60.6,35 0,70 -60.6,35 -60.6,-35"/>
+                  <polygon points="0,-52.5 45.5,-26.2 45.5,26.2 0,52.5 -45.5,26.2 -45.5,-26.2"/>
+                  <polygon points="0,-35 30.3,-17.5 30.3,17.5 0,35 -30.3,17.5 -30.3,-17.5"/>
+                  <polygon points="0,-17.5 15.1,-8.7 15.1,8.7 0,17.5 -15.1,8.7 -15.1,-8.7"/>
+                  <line x1="0" y1="-70" x2="0" y2="70"/>
+                  <line x1="-60.6" y1="-35" x2="60.6" y2="35"/>
+                  <line x1="-60.6" y1="35" x2="60.6" y2="-35"/>
+                </g>
+                <!-- área de diagnóstico -->
+                <polygon points="0,-55 52,-30 48,28 0,60 -42,24 -50,-29"
+                         fill="#0071e3" fill-opacity="0.18"
+                         stroke="#0071e3" stroke-width="1.8"/>
+                <!-- puntos -->
+                <g fill="#0071e3">
+                  <circle cx="0"   cy="-55" r="2.8"/>
+                  <circle cx="52"  cy="-30" r="2.8"/>
+                  <circle cx="48"  cy="28"  r="2.8"/>
+                  <circle cx="0"   cy="60"  r="2.8"/>
+                  <circle cx="-42" cy="24"  r="2.8"/>
+                  <circle cx="-50" cy="-29" r="2.8"/>
+                </g>
+              </g>
+              <g font-family="Inter, sans-serif" font-size="8" fill="#6e6e73" text-anchor="middle">
+                <text x="120" y="14">Comercial</text>
+                <text x="200" y="56">Operación</text>
+                <text x="200" y="132">Finanzas</text>
+                <text x="120" y="172">Talento</text>
+                <text x="40"  y="132">Datos</text>
+                <text x="40"  y="56">Estrategia</text>
+              </g>
+            </svg>
+          </div>
+          <div class="viz-label">Mapa de fortalezas</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experiencia">
+  <div class="section-label reveal">02 — Trayectoria</div>
+  <h2 class="display section-title reveal">
+    Más de 7 años <em>incrementando la rentabilidad de las empresas.</em>
+  </h2>
+  <div class="timeline">
+    <article class="exp reveal">
+      <div class="exp-period">Abril 2026 — Presente</div>
+      <div>
+        <h3 class="exp-role">Analista Senior de Inteligencia de Negocios</h3>
+        <div class="exp-company">Renfe Internacional</div>
+        <p class="exp-desc">Contribuyo enriqueciendo el pipeline del área comercial de nuestro cliente en México. Imparto cursos de capacitación al personal en análisis de negocio, estrategia de datos y toma de decisiones estratégicas.</p>
+      </div>
+    </article>
+
+    <article class="exp reveal">
+      <div class="exp-period">Enero 2024 — Abril 2026</div>
+      <div>
+        <h3 class="exp-role">Especialista en Estrategia Comercial</h3>
+        <div class="exp-company">Soft Restaurant</div>
+        <p class="exp-desc">Construí los cuadros de mando gerenciales y de dirección para el seguimiento de los indicadores más importantes del área comercial.</p>
+      </div>
+    </article>
+
+    <article class="exp reveal">
+      <div class="exp-period">Febrero 2023 — Enero 2024</div>
+      <div>
+        <h3 class="exp-role">Líder de Inteligencia de Negocio</h3>
+        <div class="exp-company">Bellísima</div>
+        <p class="exp-desc">Tuve a mi cargo la información de 100 tiendas. Desarrollé el flujo de trabajo para mantener la información actualizada y disponible para la toma de decisiones comerciales y operativas.</p>
+      </div>
+    </article>
+
+    <article class="exp reveal">
+      <div class="exp-period">Anterior</div>
+      <div>
+        <h3 class="exp-role">Analista de Inteligencia de Negocio</h3>
+        <div class="exp-company">CEMEX México</div>
+        <p class="exp-desc">Responsable de la información comercial de todas las plazas comerciales del sureste del país. Envío diario de reportes con indicadores comerciales a la vicepresidencia y dirección del área.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contacto">
+  <div class="section-label reveal">03 — Contacto</div>
+  <h2 class="display section-title reveal">
+    Hablemos de <em>tu próximo paso.</em>
+  </h2>
+
+  <div class="contact-wrap reveal">
+    <div class="contact-info">
+      <h2 class="display">Israel A. Miranda Aké</h2>
+      <p>Ingeniero en Gestión de Empresas · Especialidad en Desarrollo Empresarial.</p>
+
+      <ul class="contact-list">
+        <li>
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg>
+          </span>
+          <a href="mailto:mirak.isra17@gmail.com">mirak.isra17@gmail.com</a>
+        </li>
+        <li>
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 0 0-1.02.24l-2.2 2.2a15.05 15.05 0 0 1-6.59-6.59l2.2-2.2a1 1 0 0 0 .24-1.02A11.36 11.36 0 0 1 8.5 4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1c0 9.39 7.61 17 17 17a1 1 0 0 0 1-1v-3.5a1 1 0 0 0-1-1z"/></svg>
+          </span>
+          <a href="https://wa.me/5299915940370" target="_blank" rel="noopener">WhatsApp · +52 999 159 4037</a>
+        </li>
+        <li>
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.06c.53-1 1.82-2.06 3.75-2.06C20.4 8.64 21 11 21 14.04V21h-4v-6.15c0-1.47-.03-3.36-2.05-3.36-2.05 0-2.36 1.6-2.36 3.25V21H9z"/></svg>
+          </span>
+          <a href="https://www.linkedin.com/in/israelmirandaake" target="_blank" rel="noopener">LinkedIn · /israelmirandaake</a>
+        </li>
+      </ul>
+    </div>
+
+    <form id="contact-form" novalidate>
+      <div class="field">
+        <label for="nombre">Nombre</label>
+        <input id="nombre" name="nombre" type="text" required placeholder="Tu nombre completo" />
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required placeholder="tu@empresa.com" />
+      </div>
+      <div class="field">
+        <label for="empresa">Empresa <span style="text-transform:none;color:var(--ink-mute);">(opcional)</span></label>
+        <input id="empresa" name="empresa" type="text" placeholder="Nombre de tu empresa" />
+      </div>
+      <div class="field">
+        <label for="mensaje">¿En qué puedo ayudarte?</label>
+        <textarea id="mensaje" name="mensaje" required placeholder="Cuéntame brevemente tu reto o lo que estás buscando."></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">
+        Enviar mensaje <span class="arrow">→</span>
+      </button>
+      <p class="form-note">Al enviar, se abrirá tu cuenta de correo con el mensaje listo para enviar.</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="display">Israel Alberto Miranda Aké</div>
+  <div>© 2026 · Consultoría en desarrollo empresarial.</div>
+</footer>
+
+<script>
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Tap-to-flip for touch devices
+  const isTouch = window.matchMedia('(hover: none)').matches;
+  if (isTouch) {
+    document.querySelectorAll('.service').forEach(card => {
+      card.addEventListener('click', () => card.classList.toggle('flipped'));
+    });
+  }
+
+  // Contact form -> mailto
+  const form = document.getElementById('contact-form');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const nombre = encodeURIComponent(document.getElementById('nombre').value.trim());
+    const email = encodeURIComponent(document.getElementById('email').value.trim());
+    const empresa = encodeURIComponent(document.getElementById('empresa').value.trim());
+    const mensaje = encodeURIComponent(document.getElementById('mensaje').value.trim());
+
+    if (!nombre || !email || !mensaje) {
+      alert('Por favor completa nombre, email y mensaje.');
+      return;
+    }
+
+    const subject = `Consulta desde el sitio web — ${decodeURIComponent(nombre)}`;
+    const body =
+      `Nombre: ${decodeURIComponent(nombre)}%0D%0A` +
+      `Email: ${decodeURIComponent(email)}%0D%0A` +
+      `Empresa: ${decodeURIComponent(empresa) || '—'}%0D%0A%0D%0A` +
+      `Mensaje:%0D%0A${decodeURIComponent(mensaje)}`;
+
+    window.location.href = `mailto:mirak.isra17@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+  });
+</script>
+
+</body>
+</html>
