@@ -360,23 +360,33 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
   }
+  .portfolio-grid.row-2 {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 78%;
+    margin: 24px auto 0;
+  }
   @media (max-width: 1000px) {
     .portfolio-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .portfolio-grid.row-2 { grid-template-columns: repeat(2, 1fr); max-width: 100%; }
   }
   @media (max-width: 560px) {
     .portfolio-grid { grid-template-columns: 1fr; }
+    .portfolio-grid.row-2 { grid-template-columns: 1fr; }
   }
   .portfolio-item {
     background: var(--surface);
     border: 1px solid var(--line-soft);
     border-radius: 16px;
     overflow: hidden;
-    transition: transform .35s cubic-bezier(.22,.61,.36,1), box-shadow .35s;
+    transition: transform .45s cubic-bezier(.22,.61,.36,1), box-shadow .45s, border-color .45s;
     cursor: pointer;
+    position: relative;
   }
   .portfolio-item:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 1px 0 rgba(0,0,0,0.04), 0 20px 40px -20px rgba(0,0,0,0.12);
+    transform: translateY(-6px);
+    box-shadow: 0 1px 0 rgba(0,0,0,0.04), 0 30px 60px -25px rgba(0,113,227,0.18), 0 20px 40px -20px rgba(0,0,0,0.12);
+    border-color: rgba(0,113,227,0.2);
+    z-index: 2;
   }
   .portfolio-thumb {
     aspect-ratio: 16/10;
@@ -386,14 +396,35 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    position: relative;
   }
   .portfolio-thumb svg {
     width: 100%;
     height: 100%;
     display: block;
+    transition: transform .6s cubic-bezier(.22,.61,.36,1);
+    transform-origin: center center;
+  }
+  .portfolio-item:hover .portfolio-thumb svg {
+    transform: scale(1.18);
+  }
+  .portfolio-thumb::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent 60%, rgba(0,113,227,0.04));
+    opacity: 0;
+    transition: opacity .45s;
+    pointer-events: none;
+  }
+  .portfolio-item:hover .portfolio-thumb::after {
+    opacity: 1;
   }
   .portfolio-meta {
     padding: 18px 20px 20px;
+    position: relative;
+    z-index: 1;
+    background: var(--surface);
   }
   .portfolio-tag {
     font-size: 10.5px;
@@ -402,6 +433,10 @@
     text-transform: uppercase;
     letter-spacing: 0.1em;
     margin-bottom: 8px;
+    transition: letter-spacing .3s;
+  }
+  .portfolio-item:hover .portfolio-tag {
+    letter-spacing: 0.14em;
   }
   .portfolio-meta h3 {
     font-family: 'Fraunces', serif;
@@ -1515,7 +1550,370 @@
 
   </div>
 
-  <p class="portfolio-note reveal">Pasa el cursor o tócalos para verlos con detalle. Cada uno representa un caso real desarrollado para distintos sectores.</p>
+  <div class="portfolio-grid row-2">
+
+    <!-- DASHBOARD 5: LOGÍSTICA / CADENA DE SUMINISTRO -->
+    <article class="portfolio-item reveal">
+      <div class="portfolio-thumb">
+        <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+          <rect width="400" height="250" fill="#fbfbfd"/>
+          <rect x="0" y="0" width="400" height="22" fill="#1d1d1f"/>
+          <circle cx="10" cy="11" r="2.5" fill="#ff5f57"/>
+          <circle cx="20" cy="11" r="2.5" fill="#febc2e"/>
+          <circle cx="30" cy="11" r="2.5" fill="#28c840"/>
+          <text x="200" y="14.5" text-anchor="middle" font-family="Inter, sans-serif" font-size="7" fill="#fff" font-weight="500" letter-spacing="0.5">LOGÍSTICA · CADENA DE SUMINISTRO</text>
+
+          <!-- KPIs en fila -->
+          <g font-family="Inter, sans-serif">
+            <rect x="12" y="32" width="91" height="40" rx="5" fill="#fff" stroke="#e5e5e7" stroke-width="0.5"/>
+            <text x="20" y="44" font-size="6" fill="#6e6e73" letter-spacing="0.4">ENTREGAS A TIEMPO</text>
+            <text x="20" y="62" font-family="Fraunces, serif" font-size="13" fill="#1d1d1f" font-weight="500">94.2%</text>
+            <text x="95" y="62" font-size="6" fill="#0071e3" text-anchor="end" font-weight="500">▲ 3pp</text>
+
+            <rect x="110" y="32" width="91" height="40" rx="5" fill="#fff" stroke="#e5e5e7" stroke-width="0.5"/>
+            <text x="118" y="44" font-size="6" fill="#6e6e73" letter-spacing="0.4">LEAD TIME</text>
+            <text x="118" y="62" font-family="Fraunces, serif" font-size="13" fill="#1d1d1f" font-weight="500">3.8 d</text>
+            <text x="193" y="62" font-size="6" fill="#0071e3" text-anchor="end" font-weight="500">−12%</text>
+
+            <rect x="208" y="32" width="91" height="40" rx="5" fill="#fff" stroke="#e5e5e7" stroke-width="0.5"/>
+            <text x="216" y="44" font-size="6" fill="#6e6e73" letter-spacing="0.4">COSTO/ENVÍO</text>
+            <text x="216" y="62" font-family="Fraunces, serif" font-size="13" fill="#1d1d1f" font-weight="500">$148</text>
+            <text x="291" y="62" font-size="6" fill="#6e6e73" text-anchor="end" font-weight="500">▼ 6%</text>
+
+            <rect x="306" y="32" width="82" height="40" rx="5" fill="#1d1d1f"/>
+            <text x="314" y="44" font-size="6" fill="#a8a8ad" letter-spacing="0.4">FILL RATE</text>
+            <text x="314" y="62" font-family="Fraunces, serif" font-size="13" fill="#fff" font-weight="500">97.8%</text>
+          </g>
+
+          <!-- Flujo de la cadena de suministro -->
+          <rect x="12" y="82" width="240" height="78" rx="5" fill="#fff" stroke="#e5e5e7" stroke-width="0.5"/>
+          <text x="22" y="96" font-family="Inter, sans-serif" font-size="6.5" fill="#6e6e73" letter-spacing="0.4">FLUJO LOGÍSTICO</text>
+
+          <!-- 4 nodos conectados -->
+          <g>
+            <!-- Conexiones -->
+            <line x1="48" y1="130" x2="98" y2="130" stroke="#0071e3" stroke-width="1.2"/>
+            <line x1="124" y1="130" x2="174" y2="130" stroke="#0071e3" stroke-width="1.2"/>
+            <line x1="200" y1="130" x2="222" y2="130" stroke="#0071e3" stroke-width="1.2" stroke-dasharray="2 2" opacity="0.5"/>
+
+            <!-- Nodos -->
+            <circle cx="35" cy="130" r="11" fill="#1d1d1f"/>
+            <text x="35" y="133" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" fill="#fff" font-weight="600">CD</text>
+
+            <circle cx="111" cy="130" r="11" fill="#0071e3"/>
+            <text x="111" y="133" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" fill="#fff" font-weight="600">DC</text>
+
+            <circle cx="187" cy="130" r="11" fill="#0071e3" opacity="0.7"/>
+            <text x="187" y="133" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" fill="#fff" font-weight="600">ÚLT</text>
+
+            <circle cx="232" cy="130" r="8" fill="#fff" stroke="#1d1d1f" stroke-width="1"/>
+            <text x="232" y="133" text-anchor="middle" font-family="Inter, sans-serif" font-size="5" fill="#1d1d1f" font-weight="600">★</text>
+          </g>
+          <g font-family="Inter, sans-serif" font-size="5" fill="#6e6e73" text-anchor="middle">
+            <text x="35" y="152">Origen</text>
+            <text x="111" y="152">Distribución</text>
+            <text x="187" y="152">Última milla</text>
+            <text x="232" y="152">Cliente</text>
+          </g>
+
+          <!-- Mini stats abajo -->
+          <g font-family="Inter, sans-serif" font-size="5" fill="#424245">
+            <text x="35" y="106" text-anchor="middle">1.2d</text>
+            <text x="111" y="106" text-anchor="middle">0.8d</text>
+            <text x="187" y="106" text-anchor="middle">1.8d</text>
+          </g>
+
+          <!-- Gráfica inventario -->
+          <rect x="258" y="82" width="130" height="78" rx="5" fill="#fff" stroke="#e5e5e7" stroke-width="0.5"/>
+          <text x="268" y="96" font-family="Inter, sans-serif" font-size="6.5" fill="#6e6e73" letter-spacing="0.4">ROTACIÓN INVENTARIO</text>
+          <text x="268" y="115" font-family="Fraunces, serif" font-size="18" fill="#1d1d1f" font-weight="500">8.4x</text>
+          <text x="268" y="124" font-family="Inter, sans-serif" font-size="5.5" fill="#0071e3" font-weight="500">▲ 1.2x vs. año anterior</text>
+
+          <!-- mini sparkline -->
+          <polyline points="268,148 282,145 296,148 310,142 324,138 338,140 352,135 366,130 380,128"
+                    fill="none" stroke="#0071e3" stroke-width="1.5"/>
+          <g fill="#0071e3">
+            <circle cx="268" cy="148" r="1.5"/><circle cx="296" cy="148" r="1.5"/>
+            <circle cx="324" cy="138" r="1.5"/><circle cx="352" cy="135" r="1.5"/>
+            <circle cx="380" cy="128" r="2" fill="#1d1d1f"/>
+          </g>
+
+          <!-- Tabla de transportistas -->
+          <rect x="12" y="170" width="376" height="68" rx="5" fill="#fff" stroke="#e5e5e7" stroke-width="0.5"/>
+          <text x="22" y="184" font-family="Inter, sans-serif" font-size="6.5" fill="#6e6e73" letter-spacing="0.4">DESEMPEÑO POR TRANSPORTISTA</text>
+
+          <g font-family="Inter, sans-serif" font-size="6" fill="#1d1d1f">
+            <text x="22" y="200">Transportista A</text>
+            <rect x="125" y="195" width="200" height="5" rx="0.5" fill="#e5e5e7"/>
+            <rect x="125" y="195" width="190" height="5" rx="0.5" fill="#0071e3"/>
+            <text x="380" y="200" text-anchor="end" font-weight="500">96.4%</text>
+
+            <text x="22" y="214">Transportista B</text>
+            <rect x="125" y="209" width="200" height="5" rx="0.5" fill="#e5e5e7"/>
+            <rect x="125" y="209" width="172" height="5" rx="0.5" fill="#0071e3" opacity="0.85"/>
+            <text x="380" y="214" text-anchor="end" font-weight="500">91.8%</text>
+
+            <text x="22" y="228">Transportista C</text>
+            <rect x="125" y="223" width="200" height="5" rx="0.5" fill="#e5e5e7"/>
+            <rect x="125" y="223" width="148" height="5" rx="0.5" fill="#0071e3" opacity="0.65"/>
+            <text x="380" y="228" text-anchor="end" font-weight="500">84.2%</text>
+          </g>
+        </svg>
+      </div>
+      <div class="portfolio-meta">
+        <div class="portfolio-tag">Power BI · Logística</div>
+        <h3>Cadena de suministro</h3>
+        <p>Lead time, fill rate y desempeño por transportista.</p>
+      </div>
+    </article>
+
+    <!-- DASHBOARD 6: RECURSOS HUMANOS -->
+    <article class="portfolio-item reveal">
+      <div class="portfolio-thumb">
+        <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+          <rect width="400" height="250" fill="#fbfbfd"/>
+          <rect x="0" y="0" width="400" height="22" fill="#1d1d1f"/>
+          <circle cx="10" cy="11" r="2.5" fill="#ff5f57"/>
+          <circle cx="20" cy="11" r="2.5" fill="#febc2e"/>
+          <circle cx="30" cy="11" r="2.5" fill="#28c840"/>
+          <text x="200" y="14.5" text-anchor="middle" font-family="Inter, sans-serif" font-size="7" fill="#fff" font-weight="500" letter-spacing="0.5">RECURSOS HUMANOS · TALENTO</text>
+
+          <!-- KPI grande izquierda -->
+          <rect x="12" y="32" width="120" height="92" rx="5" fill="#fff" stroke="#e5e5e7" stroke-width="0.5"/>
+          <text x="22" y="46" font-family="Inter, sans-serif" font-size="6.5" fill="#6e6e73" letter-spacing="0.4">HEADCOUNT</text>
+          <text x="22" y="78" font-family="Fraunces, serif" font-size="32" fill="#1d1d1f" font-weight="500">847</text>
+          <text x="22" y="96" font-family="Inter, sans-serif" font-size="6.5" fill="#0071e3" font-weight="500">▲ 12% YoY</text>
+          <text x="22" y="116" font-family="Inter, sans-serif" font-size="6" fill="#6e6e73" font-style="italic">+92 contrataciones netas</text>
+
+          <!-- Composición por área (donut) -->
+          <rect x="139" y="32" width="120" height="92" rx="5" fill="#fff" stroke="#e5e5e7" stroke-width="0.5"/>
+          <text x="149" y="46" font-family="Inter, sans-serif" font-size="6.5" fill="#6e6e73" letter-spacing="0.4">POR ÁREA</text>
+          <g transform="translate(170 82)">
+            <circle r="22" fill="none" stroke="#e5e5e7" stroke-width="7"/>
+            <circle r="22" fill="none" stroke="#1d1d1f" stroke-width="7" stroke-dasharray="55 83" transform="rotate(-90)"/>
+            <circle r="22" fill="none" stroke="#0071e3" stroke-width="7" stroke-dasharray="40 98" transform="rotate(70)"/>
+            <circle r="22" fill="none" stroke="#0071e3" stroke-width="7" stroke-dasharray="25 113" transform="rotate(174)" opacity="0.6"/>
+            <text y="2" text-anchor="middle" font-family="Fraunces, serif" font-size="8" fill="#1d1d1f" font-weight="500">847</text>
+          </g>
+          <g font-family="Inter, sans-serif" font-size="5.5" fill="#424245">
+            <rect x="200" y="62" width="5" height="5" rx="1" fill="#1d1d1f"/><text x="208" y="66.5">Op. 40%</text>
+            <rect x="200" y="73" width="5" height="5" rx="1" fill="#0071e3"/><text x="208" y="77.5">Vtas. 28%</text>
+            <rect x="200" y="84" width="5" height="5" rx="1" fill="#0071e3" opacity="0.6"/><text x="208" y="88.5">Adm. 18%</text>
+            <rect x="200" y="95" width="5" height="5" rx="1" fill="#e5e5e7"/><text x="208" y="99.5">Otros 14%</text>
+          </g>
+
+          <!-- Rotación -->
+          <rect x="266" y="32" width="122" height="92" rx="5" fill="#1d1d1f"/>
+          <text x="276" y="46" font-family="Inter, sans-serif" font-size="6.5" fill="#a8a8ad" letter-spacing="0.4">ROTACIÓN ANUAL</text>
+          <text x="276" y="78" font-family="Fraunces, serif" font-size="28" fill="#fff" font-weight="500">8.4</text>
+          <text x="335" y="78" font-family="Fraunces, serif" font-size="16" fill="#a8a8ad">%</text>
+          <text x="276" y="96" font-family="Inter, sans-serif" font-size="6" fill="#28c840" font-weight="500">▼ 2.1pp · mejor que sector</text>
+          <text x="276" y="116" font-family="Inter, sans-serif" font-size="5.5" fill="#a8a8ad" font-style="italic">benchmark sector: 12.5%</text>
+
+          <!-- Satisfacción / clima -->
+          <rect x="12" y="134" width="186" height="104" rx="5" fill="#fff" stroke="#e5e5e7" stroke-width="0.5"/>
+          <text x="22" y="148" font-family="Inter, sans-serif" font-size="6.5" fill="#6e6e73" letter-spacing="0.4">ENGAGEMENT · ENCUESTA</text>
+          <text x="22" y="160" font-family="Fraunces, serif" font-size="9" fill="#1d1d1f" font-weight="500">Resultados por dimensión</text>
+
+          <g font-family="Inter, sans-serif" font-size="5.5" fill="#424245">
+            <text x="22" y="178">Liderazgo</text>
+            <rect x="80" y="174" width="90" height="5" rx="0.5" fill="#e5e5e7"/>
+            <rect x="80" y="174" width="76" height="5" rx="0.5" fill="#0071e3"/>
+            <text x="190" y="178" text-anchor="end" font-weight="600" fill="#1d1d1f">84</text>
+
+            <text x="22" y="192">Reconocimiento</text>
+            <rect x="80" y="188" width="90" height="5" rx="0.5" fill="#e5e5e7"/>
+            <rect x="80" y="188" width="62" height="5" rx="0.5" fill="#0071e3" opacity="0.85"/>
+            <text x="190" y="192" text-anchor="end" font-weight="600" fill="#1d1d1f">69</text>
+
+            <text x="22" y="206">Crecimiento</text>
+            <rect x="80" y="202" width="90" height="5" rx="0.5" fill="#e5e5e7"/>
+            <rect x="80" y="202" width="71" height="5" rx="0.5" fill="#0071e3" opacity="0.9"/>
+            <text x="190" y="206" text-anchor="end" font-weight="600" fill="#1d1d1f">79</text>
+
+            <text x="22" y="220">Cultura</text>
+            <rect x="80" y="216" width="90" height="5" rx="0.5" fill="#e5e5e7"/>
+            <rect x="80" y="216" width="82" height="5" rx="0.5" fill="#0071e3"/>
+            <text x="190" y="220" text-anchor="end" font-weight="600" fill="#1d1d1f">91</text>
+
+            <text x="22" y="232" fill="#6e6e73" font-style="italic">eNPS</text>
+            <text x="190" y="232" text-anchor="end" font-weight="600" fill="#0071e3" font-size="6.5">+42</text>
+          </g>
+
+          <!-- Pirámide etaria -->
+          <rect x="205" y="134" width="183" height="104" rx="5" fill="#fff" stroke="#e5e5e7" stroke-width="0.5"/>
+          <text x="215" y="148" font-family="Inter, sans-serif" font-size="6.5" fill="#6e6e73" letter-spacing="0.4">PIRÁMIDE ETARIA</text>
+
+          <line x1="296" y1="158" x2="296" y2="232" stroke="#e5e5e7" stroke-width="0.5"/>
+
+          <g font-family="Inter, sans-serif" font-size="5" fill="#6e6e73">
+            <!-- Hombres a la izquierda, mujeres a la derecha -->
+            <text x="215" y="168">55+</text>
+            <rect x="276" y="163" width="20" height="6" fill="#1d1d1f" opacity="0.5"/>
+            <rect x="296" y="163" width="14" height="6" fill="#0071e3" opacity="0.5"/>
+
+            <text x="215" y="180">45-54</text>
+            <rect x="262" y="175" width="34" height="6" fill="#1d1d1f" opacity="0.7"/>
+            <rect x="296" y="175" width="28" height="6" fill="#0071e3" opacity="0.7"/>
+
+            <text x="215" y="192">35-44</text>
+            <rect x="245" y="187" width="51" height="6" fill="#1d1d1f"/>
+            <rect x="296" y="187" width="44" height="6" fill="#0071e3"/>
+
+            <text x="215" y="204">25-34</text>
+            <rect x="238" y="199" width="58" height="6" fill="#1d1d1f"/>
+            <rect x="296" y="199" width="55" height="6" fill="#0071e3"/>
+
+            <text x="215" y="216">18-24</text>
+            <rect x="266" y="211" width="30" height="6" fill="#1d1d1f" opacity="0.6"/>
+            <rect x="296" y="211" width="28" height="6" fill="#0071e3" opacity="0.6"/>
+
+            <text x="262" y="230" font-weight="600" fill="#1d1d1f">M</text>
+            <text x="330" y="230" font-weight="600" fill="#0071e3">F</text>
+          </g>
+        </svg>
+      </div>
+      <div class="portfolio-meta">
+        <div class="portfolio-tag">Power BI · Recursos Humanos</div>
+        <h3>Talento y clima organizacional</h3>
+        <p>Headcount, rotación, engagement y composición demográfica.</p>
+      </div>
+    </article>
+
+    <!-- DASHBOARD 7: MARKETING DIGITAL -->
+    <article class="portfolio-item reveal">
+      <div class="portfolio-thumb">
+        <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+          <rect width="400" height="250" fill="#fbfbfd"/>
+          <rect x="0" y="0" width="400" height="22" fill="#1d1d1f"/>
+          <circle cx="10" cy="11" r="2.5" fill="#ff5f57"/>
+          <circle cx="20" cy="11" r="2.5" fill="#febc2e"/>
+          <circle cx="30" cy="11" r="2.5" fill="#28c840"/>
+          <text x="200" y="14.5" text-anchor="middle" font-family="Inter, sans-serif" font-size="7" fill="#fff" font-weight="500" letter-spacing="0.5">MARKETING · DESEMPEÑO DIGITAL</text>
+
+          <!-- KPIs -->
+          <g font-family="Inter, sans-serif">
+            <rect x="12" y="32" width="91" height="40" rx="5" fill="#fff" stroke="#e5e5e7" stroke-width="0.5"/>
+            <text x="20" y="44" font-size="6" fill="#6e6e73" letter-spacing="0.4">INVERSIÓN</text>
+            <text x="20" y="62" font-family="Fraunces, serif" font-size="13" fill="#1d1d1f" font-weight="500">$285K</text>
+            <text x="95" y="62" font-size="6" fill="#6e6e73" text-anchor="end" font-weight="500">▲ 8%</text>
+
+            <rect x="110" y="32" width="91" height="40" rx="5" fill="#fff" stroke="#e5e5e7" stroke-width="0.5"/>
+            <text x="118" y="44" font-size="6" fill="#6e6e73" letter-spacing="0.4">ROAS</text>
+            <text x="118" y="62" font-family="Fraunces, serif" font-size="13" fill="#1d1d1f" font-weight="500">4.8x</text>
+            <text x="193" y="62" font-size="6" fill="#0071e3" text-anchor="end" font-weight="500">▲ 22%</text>
+
+            <rect x="208" y="32" width="91" height="40" rx="5" fill="#fff" stroke="#e5e5e7" stroke-width="0.5"/>
+            <text x="216" y="44" font-size="6" fill="#6e6e73" letter-spacing="0.4">CPL</text>
+            <text x="216" y="62" font-family="Fraunces, serif" font-size="13" fill="#1d1d1f" font-weight="500">$48</text>
+            <text x="291" y="62" font-size="6" fill="#0071e3" text-anchor="end" font-weight="500">▼ 18%</text>
+
+            <rect x="306" y="32" width="82" height="40" rx="5" fill="#1d1d1f"/>
+            <text x="314" y="44" font-size="6" fill="#a8a8ad" letter-spacing="0.4">CONV.</text>
+            <text x="314" y="62" font-family="Fraunces, serif" font-size="13" fill="#fff" font-weight="500">5,942</text>
+          </g>
+
+          <!-- Funnel de marketing -->
+          <rect x="12" y="82" width="186" height="156" rx="5" fill="#fff" stroke="#e5e5e7" stroke-width="0.5"/>
+          <text x="22" y="96" font-family="Inter, sans-serif" font-size="6.5" fill="#6e6e73" letter-spacing="0.4">FUNNEL DE CONVERSIÓN</text>
+
+          <g font-family="Inter, sans-serif">
+            <!-- Impresiones -->
+            <rect x="30" y="108" width="150" height="20" rx="2" fill="#0071e3"/>
+            <text x="38" y="121" font-size="6" fill="#fff" font-weight="500">IMPRESIONES</text>
+            <text x="172" y="121" font-size="7" fill="#fff" font-weight="600" text-anchor="end">2.4M</text>
+
+            <!-- Clics -->
+            <rect x="44" y="132" width="122" height="20" rx="2" fill="#0071e3" opacity="0.85"/>
+            <text x="52" y="145" font-size="6" fill="#fff" font-weight="500">CLICS</text>
+            <text x="158" y="145" font-size="7" fill="#fff" font-weight="600" text-anchor="end">96.8K</text>
+            <text x="172" y="121" font-size="4.5" fill="#fff" opacity="0.7" text-anchor="end"></text>
+            <text x="22" y="146" font-size="4.5" fill="#6e6e73">4.0%</text>
+
+            <!-- Leads -->
+            <rect x="58" y="156" width="94" height="20" rx="2" fill="#0071e3" opacity="0.7"/>
+            <text x="66" y="169" font-size="6" fill="#fff" font-weight="500">LEADS</text>
+            <text x="144" y="169" font-size="7" fill="#fff" font-weight="600" text-anchor="end">22.4K</text>
+            <text x="22" y="170" font-size="4.5" fill="#6e6e73">23.1%</text>
+
+            <!-- MQL -->
+            <rect x="72" y="180" width="66" height="20" rx="2" fill="#0071e3" opacity="0.55"/>
+            <text x="80" y="193" font-size="6" fill="#fff" font-weight="500">MQL</text>
+            <text x="130" y="193" font-size="7" fill="#fff" font-weight="600" text-anchor="end">11.8K</text>
+            <text x="22" y="194" font-size="4.5" fill="#6e6e73">52.7%</text>
+
+            <!-- Clientes -->
+            <rect x="86" y="204" width="38" height="20" rx="2" fill="#1d1d1f"/>
+            <text x="94" y="217" font-size="6" fill="#fff" font-weight="500">VENTAS</text>
+            <text x="118" y="217" font-size="7" fill="#fff" font-weight="600" text-anchor="end">5,942</text>
+            <text x="22" y="218" font-size="4.5" fill="#0071e3" font-weight="500">50.4%</text>
+          </g>
+
+          <!-- Canales -->
+          <rect x="205" y="82" width="183" height="74" rx="5" fill="#fff" stroke="#e5e5e7" stroke-width="0.5"/>
+          <text x="215" y="96" font-family="Inter, sans-serif" font-size="6.5" fill="#6e6e73" letter-spacing="0.4">DESEMPEÑO POR CANAL</text>
+
+          <g font-family="Inter, sans-serif" font-size="5.5" fill="#424245">
+            <text x="215" y="112">Google Ads</text>
+            <rect x="280" y="108" width="78" height="4" rx="0.5" fill="#e5e5e7"/>
+            <rect x="280" y="108" width="62" height="4" rx="0.5" fill="#0071e3"/>
+            <text x="385" y="112" text-anchor="end" font-weight="600" fill="#1d1d1f">38%</text>
+
+            <text x="215" y="124">Meta Ads</text>
+            <rect x="280" y="120" width="78" height="4" rx="0.5" fill="#e5e5e7"/>
+            <rect x="280" y="120" width="48" height="4" rx="0.5" fill="#0071e3" opacity="0.85"/>
+            <text x="385" y="124" text-anchor="end" font-weight="600" fill="#1d1d1f">28%</text>
+
+            <text x="215" y="136">LinkedIn</text>
+            <rect x="280" y="132" width="78" height="4" rx="0.5" fill="#e5e5e7"/>
+            <rect x="280" y="132" width="30" height="4" rx="0.5" fill="#0071e3" opacity="0.65"/>
+            <text x="385" y="136" text-anchor="end" font-weight="600" fill="#1d1d1f">19%</text>
+
+            <text x="215" y="148">Orgánico</text>
+            <rect x="280" y="144" width="78" height="4" rx="0.5" fill="#e5e5e7"/>
+            <rect x="280" y="144" width="24" height="4" rx="0.5" fill="#0071e3" opacity="0.5"/>
+            <text x="385" y="148" text-anchor="end" font-weight="600" fill="#1d1d1f">15%</text>
+          </g>
+
+          <!-- Engagement gráfica -->
+          <rect x="205" y="164" width="183" height="74" rx="5" fill="#fff" stroke="#e5e5e7" stroke-width="0.5"/>
+          <text x="215" y="178" font-family="Inter, sans-serif" font-size="6.5" fill="#6e6e73" letter-spacing="0.4">CTR Y ENGAGEMENT</text>
+
+          <g stroke="#e5e5e7" stroke-width="0.5">
+            <line x1="215" y1="225" x2="378" y2="225"/>
+            <line x1="215" y1="208" x2="378" y2="208" opacity="0.5"/>
+            <line x1="215" y1="192" x2="378" y2="192" opacity="0.5"/>
+          </g>
+
+          <!-- Barras CTR -->
+          <g>
+            <rect x="222" y="208" width="10" height="17" rx="1" fill="#0071e3" opacity="0.4"/>
+            <rect x="240" y="200" width="10" height="25" rx="1" fill="#0071e3" opacity="0.5"/>
+            <rect x="258" y="205" width="10" height="20" rx="1" fill="#0071e3" opacity="0.6"/>
+            <rect x="276" y="198" width="10" height="27" rx="1" fill="#0071e3" opacity="0.7"/>
+            <rect x="294" y="195" width="10" height="30" rx="1" fill="#0071e3" opacity="0.8"/>
+            <rect x="312" y="190" width="10" height="35" rx="1" fill="#0071e3" opacity="0.9"/>
+            <rect x="330" y="188" width="10" height="37" rx="1" fill="#0071e3"/>
+            <rect x="348" y="184" width="10" height="41" rx="1" fill="#1d1d1f"/>
+          </g>
+
+          <!-- línea CTR % -->
+          <polyline points="227,215 245,210 263,212 281,206 299,202 317,196 335,194 353,188"
+                    fill="none" stroke="#1d1d1f" stroke-width="1" stroke-dasharray="2 2"/>
+
+          <text x="367" y="190" font-family="Inter, sans-serif" font-size="6" fill="#0071e3" font-weight="600">4.0%</text>
+        </svg>
+      </div>
+      <div class="portfolio-meta">
+        <div class="portfolio-tag">Power BI · Marketing</div>
+        <h3>Marketing digital y ROAS</h3>
+        <p>Funnel completo, atribución por canal y CTR de campañas.</p>
+      </div>
+    </article>
+
+  </div>
+
+  <p class="portfolio-note reveal">Pasa el cursor sobre cualquier tablero para verlo con detalle. Cada uno representa un caso real desarrollado para distintos sectores.</p>
 </section>
 
 <!-- CONTACT -->
@@ -1527,7 +1925,7 @@
 
   <div class="contact-wrap reveal">
     <div class="contact-info">
-      <h2 class="display">Israel A. Miranda A.</h2>
+      <h2 class="display">Israel Miranda Aké</h2>
       <p>Ingeniero en Gestión de Empresas · Especialista en Desarrollo Empresarial.</p>
 
       <ul class="contact-list">
